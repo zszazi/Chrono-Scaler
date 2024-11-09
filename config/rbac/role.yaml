@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - api.zszazi.github.io
+  resources:
+  - chronoscalers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - api.zszazi.github.io
+  resources:
+  - chronoscalers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - api.zszazi.github.io
+  resources:
+  - chronoscalers/status
+  verbs:
+  - get
+  - patch
+  - update

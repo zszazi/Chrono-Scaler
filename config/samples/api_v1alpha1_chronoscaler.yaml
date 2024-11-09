@@ -1,0 +1,15 @@
+apiVersion: api.zszazi.github.io/v1alpha1
+kind: ChronoScaler
+metadata:
+  labels:
+    app.kubernetes.io/name: scale-nginx
+    app.kubernetes.io/managed-by: kustomize
+  name: chronoscaler-sample
+spec:
+  start: "9h23m" 
+  end: "14h41m"
+  replicas: 3
+  defaultReplicas: 2
+  deployments:
+  - name: nginx
+    namespace: default

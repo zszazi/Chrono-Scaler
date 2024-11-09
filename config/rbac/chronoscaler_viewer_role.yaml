@@ -1,0 +1,23 @@
+# permissions for end users to view chronoscalers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: chrono-scaler
+    app.kubernetes.io/managed-by: kustomize
+  name: chronoscaler-viewer-role
+rules:
+- apiGroups:
+  - api.zszazi.github.io
+  resources:
+  - chronoscalers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - api.zszazi.github.io
+  resources:
+  - chronoscalers/status
+  verbs:
+  - get
