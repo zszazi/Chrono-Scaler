@@ -7,9 +7,9 @@ metadata:
   name: chronoscaler-sample
 spec:
   start: "9h23m" 
-  end: "14h41m"
+  end: "21h41m"
   replicas: 3
-  defaultReplicas: 2
+  defaultReplicas: 1
   deployments:
   - name: nginx
     namespace: default

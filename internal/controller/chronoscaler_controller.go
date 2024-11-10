@@ -92,6 +92,12 @@ func (r *ChronoScalerReconciler) Reconcile(ctx context.Context, req ctrl.Request
 			deployment.Spec.Replicas = &targetReplicas
 			err := r.Update(ctx, deployment)
 			if err != nil {
+				scaler.Status.Status = apiv1alpha1.FAILED
+				return ctrl.Result{}, err
+			}
+			scaler.Status.Status = apiv1alpha1.SUCCESS
+			err = r.Status().Update(ctx, scaler)
+			if err != nil {
 				return ctrl.Result{}, err
 			}
 		}
